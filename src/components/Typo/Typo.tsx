@@ -1,55 +1,45 @@
 import React, { FC, PropsWithChildren } from "react";
-import {
-  Title1Type,
-  Title2Type,
-  Title3Type,
-  Title4Type,
-  Title1,
-  Title2,
-  Title3,
-  Title4,
-} from "./Title";
-import { SubTitle1, SubTitle1Type, SubTitle2, SubTitle2Type } from "./SubTitle";
-import {
-  Body1,
-  Body1Type,
-  Body2,
-  Body2Type,
-  Body3,
-  Body3Type,
-  Body4,
-  Body4Type,
-  Body5,
-  Body5Type,
-} from "./Body";
+import * as Title from "./Title";
+import * as SubTitle from "./SubTitle";
+import * as Body from "./Body";
+import * as Caption from "./Caption";
 
 type TypoTypes = FC<PropsWithChildren> &
-  Title1Type &
-  Title2Type &
-  Title3Type &
-  Title4Type &
-  SubTitle1Type &
-  SubTitle2Type &
-  Body1Type &
-  Body2Type &
-  Body3Type &
-  Body4Type &
-  Body5Type;
+  Title.Title1Type &
+  Title.Title2Type &
+  Title.Title3Type &
+  Title.Title4Type &
+  SubTitle.SubTitle1Type &
+  SubTitle.SubTitle2Type &
+  Body.Body1Type &
+  Body.Body2Type &
+  Body.Body3Type &
+  Body.Body4Type &
+  Body.Body5Type &
+  Caption.Caption1Type &
+  Caption.Caption2Type &
+  Caption.Caption3Type &
+  Caption.Caption4Type;
 
 export const Typo: TypoTypes = ({ children }) => {
   return <>{children}</>;
 };
 
-Typo.Title1 = Title1;
-Typo.Title2 = Title2;
-Typo.Title3 = Title3;
-Typo.Title4 = Title4;
+Typo.Title1 = Title.Title1;
+Typo.Title2 = Title.Title2;
+Typo.Title3 = Title.Title3;
+Typo.Title4 = Title.Title4;
 
-Typo.SubTitle1 = SubTitle1;
-Typo.SubTitle2 = SubTitle2;
+Typo.SubTitle1 = SubTitle.SubTitle1;
+Typo.SubTitle2 = SubTitle.SubTitle2;
 
-Typo.Body1 = Body1;
-Typo.Body2 = Body2;
-Typo.Body3 = Body3;
-Typo.Body4 = Body4;
-Typo.Body5 = Body5;
+Typo.Body1 = Body.Body1;
+Typo.Body2 = Body.Body2;
+Typo.Body3 = Body.Body3;
+Typo.Body4 = Body.Body4;
+Typo.Body5 = Body.Body5;
+
+Typo.Caption1 = Caption.Caption1;
+Typo.Caption2 = Caption.Caption2;
+Typo.Caption3 = Caption.Caption3;
+Typo.Caption4 = Caption.Caption4;
