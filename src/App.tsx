@@ -1,5 +1,5 @@
-import { ButtonDefault, ButtonSecondary } from "./Button/Button";
-import { InputWrapper } from "./Input/Input";
+import { ButtonDefault, ButtonSecondary } from "./components/Button/Button";
+import { InputWrapper } from "./components/Input/Input";
 import GlobalStyle from "./styles/global";
 import { Typo } from "./components/Typo";
 //const App = (): JSX.Element => <Button text="App" />;
@@ -36,6 +36,14 @@ const App = (): JSX.Element => {
       <Typo.Title2>Jacob's Playground</Typo.Title2>
       <Typo.Title3>Jacob's Playground</Typo.Title3>
       <Typo.Title4>Jacob's Playground</Typo.Title4>
+
+      <Typo.Body1>Jacob's Playground</Typo.Body1>
+      <Typo.Body2>Jacob's Playground</Typo.Body2>
+      <Typo.Body3>Jacob's Playground</Typo.Body3>
+      <Typo.Body4>Jacob's Playground</Typo.Body4>
+
+      <Typo.Caption1>Jacob's Playground</Typo.Caption1>
+      <Typo.Caption2>Jacob's Playground</Typo.Caption2>
     </>
   );
 };

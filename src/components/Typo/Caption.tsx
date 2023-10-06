@@ -6,8 +6,8 @@ export const Caption1: FC<PropsWithChildren> = memo(({ children }) => {
 });
 
 const StyledCaption1 = styled.span`
-  font-size: 3.2rem;
-  font-weight: bold;
+  font-size: 1.2rem;
+  font-weight: lighter;
 `;
 
 export type Caption1Type = { Caption1: typeof Caption1 };
@@ -17,8 +17,8 @@ export const Caption2: FC<PropsWithChildren> = memo(({ children }) => {
 });
 
 const StyledCaption2 = styled.span`
-  font-size: 3rem;
-  font-weight: bold;
+  font-size: 1.1rem;
+  font-weight: lighter;
 `;
 export type Caption2Type = { Caption2: typeof Caption2 };
 
@@ -27,8 +27,8 @@ export const Caption3: FC<PropsWithChildren> = memo(({ children }) => {
 });
 
 const StyledCaption3 = styled.span`
-  font-size: 2.8rem;
-  font-weight: bold;
+  font-size: 1rem;
+  font-weight: lighter;
 `;
 export type Caption3Type = { Caption3: typeof Caption3 };
 
@@ -37,7 +37,7 @@ export const Caption4: FC<PropsWithChildren> = memo(({ children }) => {
 });
 
 const StyledCaption4 = styled.span`
-  font-size: 2.4rem;
-  font-weight: bold;
+  font-size: 0.8rem;
+  font-weight: lighter;
 `;
 export type Caption4Type = { Caption4: typeof Caption4 };

@@ -1,11 +1,52 @@
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 
-const fontUrl =
-  "https://fonts.googleapis.com/css?family=Nunito+Sans:400,700,800,900";
-
 const GlobalStyles = createGlobalStyle`
-    ${reset}
+
+
+
+  
+
+// NIXGONB - Bold
+@font-face {
+     font-family: 'NIXGONM2';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/NIXGONB-Vb.woff') format('woff');
+     font-weight: bold; // bold
+
+}
+// NIXGONB - large
+@font-face {
+     font-family: 'NIXGONM2';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/NIXGONL-Vb.woff') format('woff');
+     font-weight: normal; // large
+
+}
+// NIXGONB - medium
+@font-face {
+     font-family: 'NIXGONM2';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/NIXGONM-Vb.woff') format('woff');
+
+}
+
+
+
+
+
+
+      ${reset}
+    #root, body, html {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+
+             /* font-size 1em = 10px on default browser settings */
+    font-size: 62.5%;
+    //font-family:NIXGONM2, 'Noto Sans Display', 'AppleSDGothicNeo', 'Noto Sans KR',sans-serif;
+    font-family: 'NIXGONM2';
+
+  }
+
 :focus {
         outline: none;
         border: none;
@@ -13,17 +54,11 @@ const GlobalStyles = createGlobalStyle`
     ::-webkit-scrollbar {
         display: none;
     }
-  #root, body, html {
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
 
-     /* font-size 1em = 10px on default browser settings */
-    font-size: 62.5%;
-    font-family: 'Noto Sans Display', 'AppleSDGothicNeo', 'Noto Sans KR',sans-serif;
-  }
    * {
+             /* font-size 1em = 10px on default browser settings */
+  
+
   
     box-sizing: border-box;
     ::-webkit-scrollbar {
@@ -48,15 +83,17 @@ const GlobalStyles = createGlobalStyle`
   }
 
     button {
+      font-family: inherit;
         background: none;
         padding: 0;
         border: none;
         cursor: pointer;
         &:disabled {
             cursor: default;
-            /*fill: #f2f3f4;*/
         }
     }
+
+
 `;
 
 export default GlobalStyles;
