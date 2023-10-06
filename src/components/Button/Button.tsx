@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes, ReactNode } from "react";
-import { Default, Secondary, Mini } from "./Button.styles";
+import { Default, Secondary, Mini, Text } from "./Button.styles";
 import { Typo } from "../Typo";
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   //text: string;
@@ -11,7 +11,7 @@ export interface DisabledProps extends ButtonProps {
 }
 
 export interface ColorProps extends ButtonProps {
-  color: "green" | "black" | "white";
+  color: "green" | "black" | "white" | "yellow";
 }
 
 export interface BorderProps extends ButtonProps {
@@ -25,6 +25,7 @@ export interface HeightProps extends ButtonProps {
 type DefaultProps = DisabledProps & ColorProps;
 type SecondaryProps = ColorProps & BorderProps;
 type MiniProps = ColorProps & HeightProps & BorderProps;
+type TextProps = ColorProps;
 
 const ButtonDefault = ({
   color,
@@ -44,7 +45,7 @@ const ButtonSecondary = ({
   ...props
 }: SecondaryProps): JSX.Element => (
   <Secondary border={border} color={color}>
-    {children}
+    <Typo.Body3>{children}</Typo.Body3>
   </Secondary>
 );
 
@@ -60,6 +61,12 @@ const ButtonMini = ({
   </Mini>
 );
 
+const ButtonText = ({ color, children, ...props }: TextProps): JSX.Element => (
+  <Text color={color}>
+    <Typo.Body1>{children}</Typo.Body1>
+  </Text>
+);
+
 export {
   ButtonDefault,
   DefaultProps,
@@ -67,4 +74,6 @@ export {
   SecondaryProps,
   ButtonMini,
   MiniProps,
+  ButtonText,
+  TextProps,
 };

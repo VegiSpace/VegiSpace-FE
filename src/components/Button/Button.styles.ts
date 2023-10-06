@@ -8,8 +8,15 @@ import {
   MiniProps,
   DisabledProps,
 } from "./Button";
-import {colors} from "../../styles/options";
+import {colors, borderRadius} from "../../styles/options";
 
+
+const DefaultStyles = css`
+  border: none;
+  justify-content: center;
+  align-items: center;
+
+`;
 
 const ColorStyles = css<{ color: ColorProps["color"] }>`
   ${({ color }) =>
@@ -32,6 +39,14 @@ const ColorStyles = css<{ color: ColorProps["color"] }>`
       color: ${colors.neutral["1000"]};
       background-color: ${colors.neutral["0"]};
     `}
+
+
+              ${({ color }) =>
+    color === "yellow" &&
+    css`
+      color: black;
+      background-color: #ffe03f;
+    `}
 `;
 
 const DisabledStyles = css<{
@@ -53,7 +68,14 @@ const DisabledStyles = css<{
       color: ${colors.primary["25"]};
       background-color: ${colors.grey["500"]};
     `}
-`;
+
+
+              ${({ color }) =>
+    color === "yellow" &&
+    css`
+      color: black;
+      background-color:  ${colors.teritary["25"]};
+`}`
 
 
 
@@ -61,13 +83,13 @@ const BorderStyles = css<{ border: BorderProps["border"] }>`
   ${({ border }) =>
     border === "square" &&
     css`
-      border-radius: 4px;
+      border-radius:${borderRadius.square};
     `}
 
   ${({ border }) =>
     border === "round" &&
     css`
-      border-radius: 30px;
+      border-radius: ${borderRadius.round};
     `}
 `;
 
@@ -85,15 +107,46 @@ const HeightStyles = css<{ height: HeightProps["height"] }>`
     `}
 `;
 
+
+const TextColorStyles = css<{ color: ColorProps["color"] }>`
+  ${({ color }) =>
+    color === "green" &&
+    css`
+     
+      color: ${colors.primary["300"]};
+    `}
+
+  ${({ color }) =>
+    color === "black" &&
+    css`
+     
+      color: ${colors.neutral["1000"]};
+    `}
+
+      ${({ color }) =>
+    color === "white" &&
+    css`
+     
+      color: ${colors.neutral["0"]};
+    `}
+
+
+              ${({ color }) =>
+    color === "yellow" &&
+    css`
+      
+    color: ${colors.teritary["25"]}`};
+`;
+
 const Default = styled.button<{
   color: DefaultProps["color"];
-  disabled: DisabledProps["disabled"]}>`
+  disabled: DisabledProps["disabled"];
+}>`
   /*공통 스타일*/
-  border-radius: 1.2rem;
+  border-radius: ${({ theme }) => theme.borderRadius.normal};
   width: 32.4rem;
   height: 4.8rem;
-  border: none;
-  justify-content: center;
+  ${DefaultStyles}
   ${ColorStyles}
   ${DisabledStyles}
 `;
@@ -103,10 +156,10 @@ const Secondary = styled.button<{
   color: SecondaryProps["color"];
 }>`
   /*공통 스타일*/
-  border-radius: 12px;
+
   width: 324px;
   height: 48px;
-  border: none;
+  ${DefaultStyles}
   ${ColorStyles}
   ${BorderStyles}
 `;
@@ -117,19 +170,20 @@ const Mini = styled.button<{
   border: MiniProps["border"];
 }>`
   width: 140px;
-  border: none;
+  ${DefaultStyles}
   ${ColorStyles}
   ${HeightStyles}
   ${BorderStyles}
 `;
-/*
-const ButtonDefault = styled.button`
-  background: transparent;
-  border-radius: 3px;
-  border: 2px solid palevioletred;
-  color: palevioletred;
-  margin: 0 1em;
-  padding: 0.25em 1em;
-`;*/
 
-export { ColorStyles,DisabledStyles, BorderStyles, HeightStyles, Default, Secondary, Mini };
+const Text = styled.button<{
+  color: MiniProps["color"];}>`
+  text-decoration : underline;
+  ${DefaultStyles}
+  ${TextColorStyles}
+
+
+
+`;
+
+export { ColorStyles,DisabledStyles, BorderStyles, HeightStyles, Default, Secondary, Mini , Text};

@@ -6,9 +6,10 @@ import {
   ButtonSecondary,
   SecondaryProps,
   ButtonMini,
-  MiniProps
+  MiniProps,
+  ButtonText,
+  TextProps,
 } from "./Button";
-
 
 const meta: Meta = {
   title: "Button",
@@ -39,20 +40,34 @@ export const Secondary = {
   },
   argTypes: {
     border: { control: "inline-radio", options: ["square", "round"] },
-    color: { control: "inline-radio", options: ["white","yellow", "green"] },
+    color: { control: "inline-radio", options: ["white", "yellow", "green"] },
   },
 };
 
 export const Mini = {
   render: (args: MiniProps) => <ButtonMini {...args} />,
   args: {
-    color: "white",
+    color: "green",
     height: 48,
-    border:"round"
+    border: "round",
   },
   argTypes: {
     color: { control: "inline-radio", options: ["white", "green"] },
     height: { control: "inline-radio", options: [36, 48] },
     border: { control: "inline-radio", options: ["square", "round"] },
+  },
+};
+
+
+export const Text = {
+  render: (args: TextProps) => <ButtonText {...args} />,
+  args: {
+    color: "green",
+  },
+  argTypes: {
+    color: {
+      control: "inline-radio",
+      options: ["white", "green", "yellow", "black"],
+    },
   },
 };

@@ -1,4 +1,8 @@
-import { ButtonDefault, ButtonSecondary } from "./components/Button/Button";
+import {
+  ButtonDefault,
+  ButtonSecondary,
+  ButtonText,
+} from "./components/Button/Button";
 import { InputWrapper } from "./components/Input/Input";
 import { Typo } from "./components/Typo";
 
@@ -17,6 +21,7 @@ const App = (): JSX.Element => {
       <ButtonSecondary border="round" color="white">
         Secondary round
       </ButtonSecondary>
+      <ButtonText color="green">Secondary round</ButtonText>
       <InputWrapper
         label="비밀번호"
         value="입력값"
