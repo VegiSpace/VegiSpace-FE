@@ -9,14 +9,17 @@ import {
   Title3,
   Title4,
 } from "./Title";
-import * as Pargraph from "./Pargraph";
+import { SubTitle1, SubTitle1Type, SubTitle2, SubTitle2Type } from "./SubTitle";
 
-export const Typo: FC<PropsWithChildren> &
+type TypoTypes = FC<PropsWithChildren> &
   Title1Type &
   Title2Type &
   Title3Type &
   Title4Type &
-  Pargraph.PargraphType = ({ children }) => {
+  SubTitle1Type &
+  SubTitle2Type;
+
+export const Typo: TypoTypes = ({ children }) => {
   return <>{children}</>;
 };
 
@@ -24,4 +27,5 @@ Typo.Title1 = Title1;
 Typo.Title2 = Title2;
 Typo.Title3 = Title3;
 Typo.Title4 = Title4;
-Typo.Pargraph1 = Pargraph.Pargraph1;
+Typo.SubTitle1 = SubTitle1;
+Typo.SubTitle2 = SubTitle2;
