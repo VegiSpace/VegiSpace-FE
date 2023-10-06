@@ -1,18 +1,16 @@
 import { ButtonDefault, ButtonSecondary } from "./components/Button/Button";
 import { InputWrapper } from "./components/Input/Input";
-import GlobalStyle from "./styles/global";
 import { Typo } from "./components/Typo";
-//const App = (): JSX.Element => <Button text="App" />;
 
 const App = (): JSX.Element => {
   return (
     <>
-      <GlobalStyle />
-      <ButtonDefault color="green">Default Green</ButtonDefault>
-      <ButtonDefault color="black">Default Black</ButtonDefault>
-      <ButtonSecondary border="square" color="yellow">
+      <ButtonDefault disabled={false} color="green">
+        Click Me
+      </ButtonDefault>
+      <ButtonDefault disabled={false} color="black">
         Default Black
-      </ButtonSecondary>
+      </ButtonDefault>
       <ButtonSecondary border="square" color="white">
         Secondary sqaure
       </ButtonSecondary>

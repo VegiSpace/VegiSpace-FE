@@ -23,9 +23,11 @@ export const Primary = {
   render: (args: DefaultProps) => <ButtonDefault {...args} />,
   args: {
     color: "green",
+    disabled: false,
   },
   argTypes: {
     color: { control: "inline-radio", options: ["green", "black"] },
+    disabled: { control: { type: "boolean" } },
   },
 };
 

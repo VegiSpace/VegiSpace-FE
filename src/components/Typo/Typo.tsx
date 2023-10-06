@@ -4,7 +4,7 @@ import * as SubTitle from "./SubTitle";
 import * as Body from "./Body";
 import * as Caption from "./Caption";
 
-type TypoTypes = FC<PropsWithChildren> &
+export type TypoTypes = FC<PropsWithChildren> &
   Title.Title1Type &
   Title.Title2Type &
   Title.Title3Type &

@@ -40,10 +40,10 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     margin: 0;
 
-             /* font-size 1em = 10px on default browser settings */
+     /* font-size 1em = 10px on default browser settings */
     font-size: 62.5%;
     //font-family:NIXGONM2, 'Noto Sans Display', 'AppleSDGothicNeo', 'Noto Sans KR',sans-serif;
-    font-family: 'NIXGONM2';
+    font-family: 'NIXGONM2','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
   }
 
