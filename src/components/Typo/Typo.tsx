@@ -44,6 +44,7 @@ Typo.Title1 = Title1;
 Typo.Title2 = Title2;
 Typo.Title3 = Title3;
 Typo.Title4 = Title4;
+
 Typo.SubTitle1 = SubTitle1;
 Typo.SubTitle2 = SubTitle2;
 
