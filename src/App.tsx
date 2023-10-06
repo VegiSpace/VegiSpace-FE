@@ -1,6 +1,7 @@
 import { ButtonDefault, ButtonSecondary } from "./Button/Button";
 import { InputWrapper } from "./Input/Input";
 import GlobalStyle from "./styles/global";
+import { Typo } from "./components/Typo";
 //const App = (): JSX.Element => <Button text="App" />;
 
 const App = (): JSX.Element => {
@@ -30,6 +31,11 @@ const App = (): JSX.Element => {
 
         /*value={value}*/
       />
+
+      <Typo.Title1>Jacob's Playground</Typo.Title1>
+      <Typo.Title2>Jacob's Playground</Typo.Title2>
+      <Typo.Title3>Jacob's Playground</Typo.Title3>
+      <Typo.Title4>Jacob's Playground</Typo.Title4>
     </>
   );
 };
