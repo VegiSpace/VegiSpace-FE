@@ -6,7 +6,8 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "styled-components": "^6.0.8"
+    "styled-components": "^6.0.8",
+    "styled-reset": "^4.5.1"
   },
   "scripts": {
     "prod": "NODE_ENV=production webpack serve",

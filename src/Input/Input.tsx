@@ -45,6 +45,10 @@ const errorStyles = css<{ error: InputWrapperProps["error"] }>`
     error &&
     css`
       border-color: red;
+      color: red;
+      &::placeholder {
+        color: red;
+      }
     `}
 
   ${({ error }) =>
@@ -54,7 +58,7 @@ const errorStyles = css<{ error: InputWrapperProps["error"] }>`
     `}
 `;
 
-const StyledWrapper=styled.div``;
+const StyledWrapper = styled.div``;
 
 const StyledContainer = styled.div<{
   error: InputWrapperProps["error"];
@@ -63,7 +67,7 @@ const StyledContainer = styled.div<{
   /*공통 스타일*/
   height: 34px;
   border: 0.5px solid;
-  
+
   padding: 8px 12px;
   ${errorStyles}
   ${widthStyles}
@@ -75,7 +79,7 @@ const StyledLabel = styled.label`
   margin-bottom: 5px;
 `;
 
-const StyledInput = styled.input`
+const StyledInput = styled.input<{ error: InputWrapperProps["error"] }>`
   /*공통 스타일*/
   box-sizing: border-box;
   color: black;
@@ -83,9 +87,8 @@ const StyledInput = styled.input`
   height: 100%;
   outline: none;
   border: none;
+  ${errorStyles}
 `;
-
-
 
 const InputWrapper = ({
   error,
@@ -96,7 +99,7 @@ const InputWrapper = ({
   <StyledWrapper>
     <StyledLabel>* {label}</StyledLabel>
     <StyledContainer error={error} width={width}>
-      <Input  {...props}      />
+      <Input error={error} {...props} />
     </StyledContainer>
   </StyledWrapper>
 );
@@ -105,13 +108,15 @@ const Input = ({
   placeholder,
   type,
   value,
+  error,
   name,
   id,
 }: InputProps): JSX.Element => (
   <StyledInput
+    error={error}
     placeholder={placeholder}
     type={type}
-    /*value={value}*/
+    value={value}
     name={name}
     id={id}
   />
