@@ -67,6 +67,13 @@ const ButtonText = ({ color, children, ...props }: TextProps): JSX.Element => (
   </Text>
 );
 
-export { ButtonDefault, ButtonSecondary, ButtonMini, ButtonText };
+const Button = {
+  Default: ButtonDefault,
+  Secondary: ButtonSecondary,
+  Mini: ButtonMini,
+  Text: ButtonText,
+};
+
+export { Button, ButtonDefault, ButtonSecondary, ButtonMini, ButtonText };
 
 export type { DefaultProps, SecondaryProps, MiniProps, TextProps };

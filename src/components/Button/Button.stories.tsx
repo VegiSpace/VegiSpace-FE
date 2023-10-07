@@ -1,13 +1,10 @@
 import React from "react";
 import { Story,Meta } from "@storybook/react";
 import {
-  ButtonDefault,
+  Button,
   DefaultProps,
-  ButtonSecondary,
   SecondaryProps,
-  ButtonMini,
   MiniProps,
-  ButtonText,
   TextProps,
 } from "./Button";
 
@@ -21,7 +18,7 @@ const meta: Meta = {
 export default meta;
 
 export const Primary = {
-  render: (args: DefaultProps) => <ButtonDefault {...args} />,
+  render: (args: DefaultProps) => <Button.Default {...args} />,
   args: {
     color: "green",
     disabled: false,
@@ -33,7 +30,7 @@ export const Primary = {
 };
 
 export const Secondary = {
-  render: (args: SecondaryProps) => <ButtonSecondary {...args} />,
+  render: (args: SecondaryProps) => <Button.Secondary {...args} />,
   args: {
     border: "square",
     color: "white",
@@ -45,7 +42,7 @@ export const Secondary = {
 };
 
 export const Mini = {
-  render: (args: MiniProps) => <ButtonMini {...args} />,
+  render: (args: MiniProps) => <Button.Mini {...args} />,
   args: {
     color: "green",
     height: 48,
@@ -58,9 +55,8 @@ export const Mini = {
   },
 };
 
-
 export const Text = {
-  render: (args: TextProps) => <ButtonText {...args} />,
+  render: (args: TextProps) => <Button.Text {...args} />,
   args: {
     color: "green",
   },

@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  Button,
   ButtonDefault,
   ButtonSecondary,
   ButtonText,
@@ -11,19 +12,19 @@ import { Typo } from "./components/Typo";
 const App = (): JSX.Element => {
   return (
     <>
-      <ButtonDefault disabled={false} color="green">
+      <Button.Default disabled={false} color="green">
         Click Me
-      </ButtonDefault>
-      <ButtonDefault disabled={false} color="black">
+      </Button.Default>
+      <Button.Default disabled={false} color="black">
         Default Black
-      </ButtonDefault>
-      <ButtonSecondary border="square" color="white">
+      </Button.Default>
+      <Button.Secondary border="square" color="white">
         Secondary sqaure
-      </ButtonSecondary>
-      <ButtonSecondary border="round" color="white">
+      </Button.Secondary>
+      <Button.Secondary border="round" color="white">
         Secondary round
-      </ButtonSecondary>
-      <ButtonText color="green">Secondary round</ButtonText>
+      </Button.Secondary>
+      <Button.Text color="green">Secondary round</Button.Text>
       <InputWrapper
         label="비밀번호"
         value="입력값"
