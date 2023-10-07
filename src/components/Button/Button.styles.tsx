@@ -1,4 +1,4 @@
-import styled,{css} from "styled-components";
+import styled, { css } from "styled-components";
 import {
   ColorProps,
   BorderProps,
@@ -8,14 +8,12 @@ import {
   MiniProps,
   DisabledProps,
 } from "./Button";
-import {colors, borderRadius} from "../../styles/options";
-
+import { colors, borderRadius } from "../../styles/options";
 
 const DefaultStyles = css`
   border: none;
   justify-content: center;
   align-items: center;
-
 `;
 
 const ColorStyles = css<{ color: ColorProps["color"] }>`
@@ -44,8 +42,8 @@ const ColorStyles = css<{ color: ColorProps["color"] }>`
               ${({ color }) =>
     color === "yellow" &&
     css`
-      color: black;
-      background-color: #ffe03f;
+      color: ${colors.neutral["1000"]};
+      background-color: ${colors.teritary["25"]};
     `}
 `;
 
@@ -74,16 +72,15 @@ const DisabledStyles = css<{
     color === "yellow" &&
     css`
       color: black;
-      background-color:  ${colors.teritary["25"]};
-`}`
-
-
+      background-color: ${colors.teritary["25"]};
+    `}
+`;
 
 const BorderStyles = css<{ border: BorderProps["border"] }>`
   ${({ border }) =>
     border === "square" &&
     css`
-      border-radius:${borderRadius.square};
+      border-radius: ${borderRadius.square};
     `}
 
   ${({ border }) =>
@@ -107,26 +104,22 @@ const HeightStyles = css<{ height: HeightProps["height"] }>`
     `}
 `;
 
-
 const TextColorStyles = css<{ color: ColorProps["color"] }>`
   ${({ color }) =>
     color === "green" &&
     css`
-     
       color: ${colors.primary["300"]};
     `}
 
   ${({ color }) =>
     color === "black" &&
     css`
-     
       color: ${colors.neutral["1000"]};
     `}
 
       ${({ color }) =>
     color === "white" &&
     css`
-     
       color: ${colors.neutral["0"]};
     `}
 
@@ -134,8 +127,8 @@ const TextColorStyles = css<{ color: ColorProps["color"] }>`
               ${({ color }) =>
     color === "yellow" &&
     css`
-      
-    color: ${colors.teritary["25"]}`};
+      color: ${colors.teritary["25"]};
+    `};
 `;
 
 const Default = styled.button<{
@@ -177,13 +170,20 @@ const Mini = styled.button<{
 `;
 
 const Text = styled.button<{
-  color: MiniProps["color"];}>`
-  text-decoration : underline;
+  color: MiniProps["color"];
+}>`
+  text-decoration: underline;
   ${DefaultStyles}
   ${TextColorStyles}
-
-
-
 `;
 
-export { ColorStyles,DisabledStyles, BorderStyles, HeightStyles, Default, Secondary, Mini , Text};
+export {
+  ColorStyles,
+  DisabledStyles,
+  BorderStyles,
+  HeightStyles,
+  Default,
+  Secondary,
+  Mini,
+  Text,
+};
