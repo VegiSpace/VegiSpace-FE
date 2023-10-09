@@ -10,6 +10,7 @@ const inputs: InputProps[] = [
     placeholder: "안녕하세요hello123",
     label: "사용자 이름",
     required: true,
+    captionMessage: "안녕하세요hello123",
   },
   {
     id: 2,
@@ -88,10 +89,11 @@ const SignUp = () => {
           name={name}
           value={values[name]}
           onChange={onChange}
-          showLeftIcon={false}
+          showLeftIcon={true}
           showRightIcon={true}
           isValid={errorHandler?.(values[name]) ?? true}
-          disabled={true}
+          disabled={false}
+          errorHandler={errorHandler}
           {...args}
         />
       ))}

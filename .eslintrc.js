@@ -39,7 +39,8 @@ module.exports = {
     "@typescript-eslint/no-unused-vars": "off",
     "react/prop-types": "off",
     "react/display-name": "off",
-    "react/no-unknown-property":"off"
+    "react/no-unknown-property":"off",
+    "@typescript-eslint/no-explicit-any":"off"
 
   },
 };

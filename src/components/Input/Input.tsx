@@ -5,6 +5,7 @@ import {
   StyledInputTitle,
   StyledInputWrapper,
   StyledInput,
+  StyledInputErrorWrapper,
   StyledInputCaptionWrapper,
 } from "./Input.styles";
 import { Typo } from "../Typo";
@@ -20,7 +21,14 @@ interface IconProps {
   showRightIcon?: boolean;
 }
 
-export type InputContainerProps = InputProps & InputStateControlProps;
+interface FocusProps {
+  setFocused: React.Dispatch<React.SetStateAction<boolean>>;
+  focused: boolean;
+}
+
+export type InputContainerProps = InputProps &
+  InputStateControlProps &
+  IconProps;
 
 const InputContainer = ({
   label,
@@ -34,9 +42,9 @@ const InputContainer = ({
   showRightIcon,
 
   ...inputProps
-}: InputContainerProps & IconProps) => {
+}: InputContainerProps) => {
   const [focused, setFocused] = useState(false);
-  console.log(isValid, "InputContainer", label);
+  console.log(isValid, "InputContainer", label, errorHandler);
 
   const handleFocus = () => {
     setFocused(true);
@@ -56,7 +64,11 @@ const InputContainer = ({
         {...inputProps}
       />
 
-      <InputCaption captionMessage={captionMessage} isValid={isValid ?? true} />
+      <InputCaption
+        captionMessage={captionMessage}
+        isValid={isValid ?? true}
+        errorHandler={errorHandler}
+      />
     </StyledInputContainer>
   );
 };
@@ -79,19 +91,11 @@ const InputWrapper = ({
   required,
 
   value,
-}: Partial<InputContainerProps> &
-  IconProps & {
-    /*handleFocus: () => void;*/
-    setFocused: React.Dispatch<React.SetStateAction<boolean>>;
-    focused: boolean;
-  }) => {
+}: Partial<InputContainerProps> & FocusProps) => {
   console.log(isValid, "input Wrapper", name);
   return (
     <>
-      <StyledInputWrapper
-        focused={focused.toString()}
-        isValid={isValid ?? true}
-      >
+      <StyledInputWrapper focused={`${focused}`} isValid={isValid ?? true}>
         {showLeftIcon && <Icon.Lock />}
         <StyledInput
           type={type}
@@ -103,15 +107,9 @@ const InputWrapper = ({
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
           disabled={disabled}
-
-          /*onFocus={() => console.log("Focused on input")}
-        onBlur={() => console.log("Triggered because this input lost focus")}
-          onBlur={handleFocus}
-          onFocus={() => name === "confirmPassword" && setFocused(true)}
-          focused={focused.toString()}*/
         />
 
-        {showRightIcon && <Icon.VisibilityIcon />}
+        {showRightIcon && <Icon.Visibility />}
       </StyledInputWrapper>
     </>
   );
@@ -120,16 +118,25 @@ const InputWrapper = ({
 const InputCaption = ({
   captionMessage,
   isValid,
+  errorHandler,
 }: Partial<InputContainerProps>) => {
-  console.log(isValid, "input cation");
+  console.log(isValid, errorHandler, "input cation");
   return (
     <>
-      <StyledInputCaptionWrapper isValid={isValid ?? true}>
-        <Typo.Caption3>{captionMessage}</Typo.Caption3>
-      </StyledInputCaptionWrapper>
+      {captionMessage && errorHandler !== undefined && (
+        <StyledInputErrorWrapper isValid={isValid ?? true}>
+          <Typo.Caption3>{captionMessage}</Typo.Caption3>
+        </StyledInputErrorWrapper>
+      )}
+      {captionMessage && errorHandler === undefined && (
+        <StyledInputCaptionWrapper>
+          <Typo.Caption3>{captionMessage}</Typo.Caption3>
+        </StyledInputCaptionWrapper>
+      )}
     </>
   );
 };
 
-export { InputContainer };
+export { InputContainer, InputTitle, InputWrapper, InputCaption };
 
+export type { FocusProps, IconProps };

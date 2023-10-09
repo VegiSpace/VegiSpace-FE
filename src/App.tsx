@@ -1,12 +1,13 @@
 import React, { FormEvent, useState } from "react";
 import { Button } from "./components/Button/Button";
-import { InputContainer } from "./components/Input/Input";
+import SearchBarDefault from "./components/SearchBar/Default";
+import SearchBarSeperated from "./components/SearchBar/Seperated";
 import { Icon } from "./components/Icon";
 import { Typo } from "./components/Typo";
 import SignUp from "../src/templates/signup";
 
-
 const App = (): JSX.Element => {
+  const [query, setQuery] = useState("");
   return (
     <>
       <Button.Default disabled={false} color="green">
@@ -35,9 +36,23 @@ const App = (): JSX.Element => {
 
       <Typo.Caption1>Jacob's Playground</Typo.Caption1>
       <Typo.Caption2>Jacob's Playground</Typo.Caption2>
-      <Icon.Lock width={100} height={100} />
-
-      <SignUp />
+      <Icon.SearchIcon width={100} height={100} />
+      <SearchBarDefault
+        leftIcon={false}
+        rightIcon={true}
+        placeholder={"주문한 상품을 찾아보세요"}
+        outlined={true}
+        query={query}
+        setQuery={setQuery}
+      />
+      <SearchBarSeperated
+        leftIcon={true}
+        rightIcon={false}
+        placeholder={"주문한 상품을 찾아보세요"}
+        query={query}
+        setQuery={setQuery}
+        outlined={true}
+      />
     </>
   );
 };

@@ -1,5 +1,7 @@
 import styled, { css } from "styled-components";
 import { colors } from "../../styles/options";
+import { InputContainerProps, FocusProps } from "./Input";
+import { error } from "console";
 
 const StyledInputContainer = styled.div`
   width: fit-content;
@@ -9,12 +11,16 @@ const StyledInputTitle = styled.label`
   color: ${colors.grey[500]};
 `;
 
-const StyledInputWrapper = styled.div<{ focused: string; isValid: boolean }>`
+const StyledInputWrapper = styled.div<{
+  focused: string;
+  isValid: InputContainerProps["isValid"];
+}>`
+  border-bottom: 2px solid ${colors.grey["500"]};
   ${({ focused, isValid }) =>
     focused === "false" &&
     isValid === true &&
     css`
-      border-bottom: 2px solid ${colors.primary["25"]};
+      border-bottom: 2px solid ${colors.grey["500"]};
     `}
 
   ${({ focused, isValid }) =>
@@ -49,13 +55,15 @@ const StyledInputWrapper = styled.div<{ focused: string; isValid: boolean }>`
 
 const StyledInput = styled.input`
   border: none;
-  margin-left: 0.6rem;
-  margin-right: 0.8rem;
+  /*margin-left: 0.6rem;
+  margin-right: 0.8rem;*/
   width: 100%;
   color: ${colors.neutral[1000]};
 `;
 
-const StyledInputCaptionWrapper = styled.div<{ isValid: boolean }>`
+const StyledInputErrorWrapper = styled.div<{
+  isValid: InputContainerProps["isValid"];
+}>`
   ${({ isValid }) =>
     isValid
       ? css`
@@ -67,10 +75,15 @@ const StyledInputCaptionWrapper = styled.div<{ isValid: boolean }>`
         `}
 `;
 
+const StyledInputCaptionWrapper = styled.div`
+  color: ${colors.grey["500"]};
+`;
+
 export {
   StyledInputContainer,
   StyledInputTitle,
   StyledInputWrapper,
   StyledInput,
+  StyledInputErrorWrapper,
   StyledInputCaptionWrapper,
 };
