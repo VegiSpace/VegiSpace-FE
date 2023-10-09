@@ -73,7 +73,7 @@ const meta: Meta = {
 
 export default meta;
 
-export const Primary = {
+export const Default = {
   render: (args: DefaultProps) => <Button.Default {...args} />,
   args: {
     color: "green",
