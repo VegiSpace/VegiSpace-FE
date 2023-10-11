@@ -1,79 +1,101 @@
 import { ButtonHTMLAttributes, ReactNode } from "react";
-import { Default, Secondary, Mini, Text } from "./Button.styles";
+import {
+  StyledPrimary,
+  StyledSecondary,
+  StyledMini,
+  StyledText,
+} from "./Button.styles";
 import { Typo } from "../Typo";
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   //text: string;
   children: ReactNode;
-}
-
-export interface DisabledProps extends ButtonProps {
-  disabled: false | true;
-}
-
-export interface ColorProps extends ButtonProps {
+  btnType: "primary" | "secondary" | "mini" | "text";
   color: "green" | "black" | "white" | "yellow";
+  border?: "square" | "round";
+  disabled?: false | true;
+  height?: 36 | 48;
+  onClick?: () => void;
 }
 
-export interface BorderProps extends ButtonProps {
-  border: "square" | "round";
-}
-
-export interface HeightProps extends ButtonProps {
-  height: 36 | 48;
-}
-
-type DefaultProps = DisabledProps & ColorProps;
-type SecondaryProps = ColorProps & BorderProps;
-type MiniProps = ColorProps & HeightProps & BorderProps;
-type TextProps = ColorProps;
-
-const ButtonDefault = ({
+type ParentProps = ButtonProps;
+type ChildProps = Pick<
+  ButtonProps,
+  "children" | "color" | "border" | "disabled" | "height" | "onClick"
+>;
+const Primary = ({
   color,
   disabled,
   children,
+  onClick,
   ...props
-}: DefaultProps): JSX.Element => (
-  <Default disabled={disabled} color={color}>
+}: ChildProps): JSX.Element => (
+  <StyledPrimary
+    disabled={disabled ?? false}
+    color={color}
+    onClick={onClick ?? undefined}
+  >
     <Typo.SubTitle2>{children}</Typo.SubTitle2>
-  </Default>
+  </StyledPrimary>
 );
 
-const ButtonSecondary = ({
+const Secondary = ({
   border,
   color,
   children,
+  onClick,
   ...props
-}: SecondaryProps): JSX.Element => (
-  <Secondary border={border} color={color}>
+}: ChildProps): JSX.Element => (
+  <StyledSecondary
+    border={border ?? "square"}
+    color={color}
+    onClick={onClick ?? undefined}
+  >
     <Typo.Body3>{children}</Typo.Body3>
-  </Secondary>
+  </StyledSecondary>
 );
 
-const ButtonMini = ({
+const Mini = ({
   color,
   border,
   height,
   children,
+  onClick,
   ...props
-}: MiniProps): JSX.Element => (
-  <Mini height={height} color={color} border={border}>
+}: ChildProps): JSX.Element => (
+  <StyledMini
+    height={height ?? 48}
+    color={color}
+    border={border ?? "square"}
+    onClick={onClick ?? undefined}
+  >
     {children}
-  </Mini>
+  </StyledMini>
 );
 
-const ButtonText = ({ color, children, ...props }: TextProps): JSX.Element => (
-  <Text color={color}>
+const Text = ({
+  color,
+  children,
+  onClick,
+  ...props
+}: ChildProps): JSX.Element => (
+  <StyledText color={color} onClick={onClick ?? undefined}>
     <Typo.Body1>{children}</Typo.Body1>
-  </Text>
+  </StyledText>
 );
 
-const Button = {
-  Default: ButtonDefault,
-  Secondary: ButtonSecondary,
-  Mini: ButtonMini,
-  Text: ButtonText,
+const Button = ({ btnType, ...props }: ParentProps) => {
+  return (
+    <>
+      {btnType === "primary" && <Primary {...(props as ChildProps)} />}
+
+      {btnType === "secondary" && <Secondary {...(props as ChildProps)} />}
+
+      {btnType === "mini" && <Mini {...(props as ChildProps)} />}
+      {btnType === "text" && <Text {...(props as ChildProps)} />}
+    </>
+  );
 };
 
-export { Button, ButtonDefault, ButtonSecondary, ButtonMini, ButtonText };
+export { Button };
 
-export type { DefaultProps, SecondaryProps, MiniProps, TextProps };
+export type { ChildProps };

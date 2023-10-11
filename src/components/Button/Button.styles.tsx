@@ -1,13 +1,5 @@
 import styled, { css } from "styled-components";
-import {
-  ColorProps,
-  BorderProps,
-  HeightProps,
-  DefaultProps,
-  SecondaryProps,
-  MiniProps,
-  DisabledProps,
-} from "./Button";
+import { ChildProps } from "./Button";
 import { colors, borderRadius } from "../../styles/options";
 
 const DefaultStyles = css`
@@ -16,7 +8,7 @@ const DefaultStyles = css`
   align-items: center;
 `;
 
-const ColorStyles = css<{ color: ColorProps["color"] }>`
+const ColorStyles = css<{ color: ChildProps["color"] }>`
   ${({ color }) =>
     color === "green" &&
     css`
@@ -48,8 +40,8 @@ const ColorStyles = css<{ color: ColorProps["color"] }>`
 `;
 
 const DisabledStyles = css<{
-  disabled: DisabledProps["disabled"];
-  color: ColorProps["color"];
+  disabled: ChildProps["disabled"];
+  color: ChildProps["color"];
 }>`
   ${({ color, disabled }) =>
     color === "green" &&
@@ -76,7 +68,7 @@ const DisabledStyles = css<{
     `}
 `;
 
-const BorderStyles = css<{ border: BorderProps["border"] }>`
+const BorderStyles = css<{ border: ChildProps["border"] }>`
   ${({ border }) =>
     border === "square" &&
     css`
@@ -90,7 +82,7 @@ const BorderStyles = css<{ border: BorderProps["border"] }>`
     `}
 `;
 
-const HeightStyles = css<{ height: HeightProps["height"] }>`
+const HeightStyles = css<{ height: ChildProps["height"] }>`
   ${({ height }) =>
     height === 36 &&
     css`
@@ -104,7 +96,7 @@ const HeightStyles = css<{ height: HeightProps["height"] }>`
     `}
 `;
 
-const TextColorStyles = css<{ color: ColorProps["color"] }>`
+const TextColorStyles = css<{ color: ChildProps["color"] }>`
   ${({ color }) =>
     color === "green" &&
     css`
@@ -131,9 +123,9 @@ const TextColorStyles = css<{ color: ColorProps["color"] }>`
     `};
 `;
 
-const Default = styled.button<{
-  color: DefaultProps["color"];
-  disabled: DisabledProps["disabled"];
+const StyledPrimary = styled.button<{
+  color: ChildProps["color"];
+  disabled: ChildProps["disabled"];
 }>`
   /*공통 스타일*/
   border-radius: ${({ theme }) => theme.borderRadius.normal};
@@ -144,9 +136,9 @@ const Default = styled.button<{
   ${DisabledStyles}
 `;
 
-const Secondary = styled.button<{
-  border: SecondaryProps["border"];
-  color: SecondaryProps["color"];
+const StyledSecondary = styled.button<{
+  border: ChildProps["border"];
+  color: ChildProps["color"];
 }>`
   /*공통 스타일*/
 
@@ -157,10 +149,10 @@ const Secondary = styled.button<{
   ${BorderStyles}
 `;
 
-const Mini = styled.button<{
-  color: MiniProps["color"];
-  height: MiniProps["height"];
-  border: MiniProps["border"];
+const StyledMini = styled.button<{
+  color: ChildProps["color"];
+  height: ChildProps["height"];
+  border: ChildProps["border"];
 }>`
   width: 140px;
   ${DefaultStyles}
@@ -169,8 +161,8 @@ const Mini = styled.button<{
   ${BorderStyles}
 `;
 
-const Text = styled.button<{
-  color: MiniProps["color"];
+const StyledText = styled.button<{
+  color: ChildProps["color"];
 }>`
   text-decoration: underline;
   ${DefaultStyles}
@@ -182,8 +174,8 @@ export {
   DisabledStyles,
   BorderStyles,
   HeightStyles,
-  Default,
-  Secondary,
-  Mini,
-  Text,
+  StyledPrimary,
+  StyledSecondary,
+  StyledMini,
+  StyledText,
 };

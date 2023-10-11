@@ -10,19 +10,46 @@ const App = (): JSX.Element => {
   const [query, setQuery] = useState("");
   return (
     <>
-      <Button.Default disabled={false} color="green">
+      <Button
+        btnType="primary"
+        disabled={false}
+        color="green"
+        onClick={() => console.log("Click Me")}
+      >
         Click Me
-      </Button.Default>
-      <Button.Default disabled={false} color="black">
+      </Button>
+      <Button
+        btnType="primary"
+        disabled={false}
+        color="black"
+        onClick={() => console.log("Default Black")}
+      >
         Default Black
-      </Button.Default>
-      <Button.Secondary border="square" color="white">
+      </Button>
+      <Button
+        btnType="secondary"
+        border="round"
+        color="green"
+        onClick={() => console.log("Secondary sqaure")}
+      >
         Secondary sqaure
-      </Button.Secondary>
-      <Button.Secondary border="round" color="white">
-        Secondary round
-      </Button.Secondary>
-      <Button.Text color="green">Secondary round</Button.Text>
+      </Button>
+      <Button
+        btnType="mini"
+        height={36}
+        border="round"
+        color="green"
+        onClick={() => console.log(" Mini round greend")}
+      >
+        Mini round green
+      </Button>
+      <Button
+        btnType="text"
+        color="green"
+        onClick={() => console.log("Text green")}
+      >
+        Text green
+      </Button>
 
       <Typo.Title1>Jacob's Playground</Typo.Title1>
       <Typo.Title2>Jacob's Playground</Typo.Title2>
