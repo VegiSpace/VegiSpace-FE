@@ -82,6 +82,20 @@ const BorderStyles = css<{ border: ChildProps["border"] }>`
     `}
 `;
 
+const PaddingStyles = css<{ height: ChildProps["height"] }>`
+  ${({ height }) =>
+    height === 36 &&
+    css`
+      padding: 0.4rem 3.1rem;
+    `}
+
+  ${({ height }) =>
+    height === 48 &&
+    css`
+      padding: 0.8rem 3.9rem;
+    `}
+`;
+
 const HeightStyles = css<{ height: ChildProps["height"] }>`
   ${({ height }) =>
     height === 36 &&
@@ -154,11 +168,11 @@ const StyledMini = styled.button<{
   height: ChildProps["height"];
   border: ChildProps["border"];
 }>`
-  width: 140px;
   ${DefaultStyles}
   ${ColorStyles}
   ${HeightStyles}
   ${BorderStyles}
+  ${PaddingStyles}
 `;
 
 const StyledText = styled.button<{

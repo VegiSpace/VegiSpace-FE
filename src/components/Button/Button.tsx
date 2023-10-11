@@ -34,7 +34,7 @@ const Primary = ({
     color={color}
     onClick={onClick ?? undefined}
   >
-    <Typo.SubTitle2>{children}</Typo.SubTitle2>
+    <Typo typoType="SubTitle2">{children}</Typo>
   </StyledPrimary>
 );
 
@@ -50,7 +50,7 @@ const Secondary = ({
     color={color}
     onClick={onClick ?? undefined}
   >
-    <Typo.Body3>{children}</Typo.Body3>
+    <Typo typoType="Body3">{children}</Typo>
   </StyledSecondary>
 );
 
@@ -68,7 +68,7 @@ const Mini = ({
     border={border ?? "square"}
     onClick={onClick ?? undefined}
   >
-    {children}
+    <Typo typoType="Body1">{children}</Typo>
   </StyledMini>
 );
 
@@ -79,7 +79,7 @@ const Text = ({
   ...props
 }: ChildProps): JSX.Element => (
   <StyledText color={color} onClick={onClick ?? undefined}>
-    <Typo.Body1>{children}</Typo.Body1>
+    <Typo typoType="Body1">{children}</Typo>
   </StyledText>
 );
 

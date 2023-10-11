@@ -41,7 +41,7 @@ const App = (): JSX.Element => {
         color="green"
         onClick={() => console.log(" Mini round greend")}
       >
-        Mini round green
+        Mini round
       </Button>
       <Button
         btnType="text"
@@ -51,18 +51,10 @@ const App = (): JSX.Element => {
         Text green
       </Button>
 
-      <Typo.Title1>Jacob's Playground</Typo.Title1>
-      <Typo.Title2>Jacob's Playground</Typo.Title2>
-      <Typo.Title3>Jacob's Playground</Typo.Title3>
-      <Typo.Title4>Jacob's Playground</Typo.Title4>
-
-      <Typo.Body1>Jacob's Playground</Typo.Body1>
-      <Typo.Body2>Jacob's Playground</Typo.Body2>
-      <Typo.Body3>Jacob's Playground</Typo.Body3>
-      <Typo.Body4>Jacob's Playground</Typo.Body4>
-
-      <Typo.Caption1>Jacob's Playground</Typo.Caption1>
-      <Typo.Caption2>Jacob's Playground</Typo.Caption2>
+      <Typo typoType="Title1">Jacob's Playground</Typo>
+      <Typo typoType="Title2">Jacob's Playground</Typo>
+      <Typo typoType="Title3">Jacob's Playground</Typo>
+      <Typo typoType="Title4">Jacob's Playground</Typo>
       <Icon.SearchIcon width={100} height={100} />
       <SearchBarDefault
         leftIcon={false}

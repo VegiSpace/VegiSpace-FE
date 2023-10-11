@@ -125,12 +125,12 @@ const InputCaption = ({
     <>
       {captionMessage && errorHandler !== undefined && (
         <StyledInputErrorWrapper isValid={isValid ?? true}>
-          <Typo.Caption3>{captionMessage}</Typo.Caption3>
+          <Typo typoType="Caption3">{captionMessage}</Typo>
         </StyledInputErrorWrapper>
       )}
       {captionMessage && errorHandler === undefined && (
         <StyledInputCaptionWrapper>
-          <Typo.Caption3>{captionMessage}</Typo.Caption3>
+          <Typo typoType="Caption3">{captionMessage}</Typo>
         </StyledInputCaptionWrapper>
       )}
     </>
