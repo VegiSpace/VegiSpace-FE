@@ -1,14 +1,31 @@
-import React, { FormEvent, useState } from "react";
-import { Button } from "./components/Button/Button";
-import SearchBarDefault from "./components/SearchBar/Default";
-import SearchBarSeperated from "./components/SearchBar/Seperated";
-import { Icon } from "./components/Icon";
-import { Typo } from "./components/Typo";
-import SignUp from "../src/templates/signup";
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Main, Login, Signup, Shop, Recipe, Order, Mypage } from "./pages";
+import DefaultLayout from "./layouts/DefaultLayout";
 
 const App = (): JSX.Element => {
-  const [query, setQuery] = useState("");
   return (
+    <BrowserRouter>
+      <Routes>
+        <Route element={<DefaultLayout />}>
+          <Route path="/" element={<Main />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/recipe" element={<Recipe />} />
+          <Route path="/order" element={<Order />} />
+          <Route path="/mypage" element={<Mypage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+};
+
+export default App;
+
+/*
+
+  const [query, setQuery] = useState("");
     <>
       <Button
         btnType="primary"
@@ -73,7 +90,4 @@ const App = (): JSX.Element => {
         outlined={true}
       />
     </>
-  );
-};
-
-export default App;
+*/

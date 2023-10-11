@@ -40,7 +40,8 @@ module.exports = {
     "react/prop-types": "off",
     "react/display-name": "off",
     "react/no-unknown-property":"off",
-    "@typescript-eslint/no-explicit-any":"off"
+    "@typescript-eslint/no-explicit-any":"off",
+     "react/no-children-prop":"off"
 
   },
 };
