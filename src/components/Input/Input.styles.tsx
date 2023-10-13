@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { colors } from "../../styles/options";
-import { InputContainerProps, FocusProps } from "./Input";
+import { InputContainerProps, FocusProps } from ".";
 import { error } from "console";
 
 const StyledInputContainer = styled.div`
@@ -44,7 +44,7 @@ const StyledInputWrapper = styled.div<{
     `}
   margin: 0.4rem 0;
   width: 32.6rem;
-  height: 1.6rem;
+  height: 3.4rem;
   padding-top: 0.4rem;
   padding-bottom: 0.8rem;
   display: flex;

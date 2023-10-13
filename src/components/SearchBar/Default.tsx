@@ -1,6 +1,6 @@
 import react, { FormEvent } from "react";
 import { SearchBarProps } from "./SearchBar";
-import { Icon } from "../Icon";
+import { Search } from "../Icon";
 import styled, { css } from "styled-components";
 import { colors } from "../../styles/options";
 
@@ -29,7 +29,7 @@ const SearchBarDefault = ({
       {leftIcon && (
         <button>
           {" "}
-          <Icon.SearchIcon />
+          <Search type="white" />
         </button>
       )}
 
@@ -37,7 +37,7 @@ const SearchBarDefault = ({
       {rightIcon && (
         <button>
           {" "}
-          <Icon.SearchIcon />
+          <Search type="white" />
         </button>
       )}
     </StyledForm>

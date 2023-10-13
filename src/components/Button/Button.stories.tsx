@@ -1,6 +1,6 @@
 import React from "react";
 import { StoryFn, Meta } from "@storybook/react";
-import { Button, ButtonProps } from "./Button";
+import { Button, ButtonProps } from ".";
 
 const meta: Meta = {
   title: "Button",
@@ -52,7 +52,7 @@ const meta: Meta = {
         type: { summary: "green | black | white | yellow" },
         // 추가
       },
-      options: ["white", "yellow", "green"],
+      options: ["white", "yellow", "green", "black"],
       control: {
         type: "select",
       },

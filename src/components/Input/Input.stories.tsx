@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from "@storybook/react";
-import { InputContainer, InputContainerProps } from "./Input";
+import { InputContainer, InputContainerProps } from ".";
 import { IsEmail } from "../../utiles/validation";
 
 export default {

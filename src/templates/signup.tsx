@@ -1,8 +1,9 @@
 import React, { FormEvent, useState } from "react";
-import { InputContainer } from "../components/Input/Input";
+import { InputContainer } from "../components/Input";
 import { IsEmail } from "../utiles/validation";
+import { InputComponentProps, SignupFormInputProps } from "../types/Auth";
 
-const inputs: InputProps[] = [
+const inputs: InputComponentProps[] = [
   {
     id: 1,
     name: "username",
@@ -33,37 +34,8 @@ const inputs: InputProps[] = [
   },
 ];
 
-interface InputCommonProps {
-  id?: number;
-  name: string;
-  type: "text" | "password" | "email";
-  placeholder: string;
-  label: string;
-  required?: boolean;
-}
-interface InputValidProps {
-  disabled?: boolean;
-  captionMessage?: string;
-  errorHandler?: (value: string) => boolean;
-  isValid?: boolean;
-}
-
-export type InputProps = InputCommonProps & InputValidProps;
-
-export interface UserFormInputProps {
-  [idx: string]: string;
-  username: string;
-  email: string;
-  password: string;
-}
-
-export interface InputStateControlProps {
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  value: UserFormInputProps[keyof UserFormInputProps];
-}
-
 const SignUp = () => {
-  const [values, setValues] = useState<UserFormInputProps>({
+  const [values, setValues] = useState<SignupFormInputProps>({
     username: "",
     password: "",
     email: "",
@@ -83,20 +55,22 @@ const SignUp = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      {inputs.map(({ id, name, errorHandler, ...args }: InputProps) => (
-        <InputContainer
-          key={id}
-          name={name}
-          value={values[name]}
-          onChange={onChange}
-          showLeftIcon={true}
-          showRightIcon={true}
-          isValid={errorHandler?.(values[name]) ?? true}
-          disabled={false}
-          errorHandler={errorHandler}
-          {...args}
-        />
-      ))}
+      {inputs.map(
+        ({ id, name, errorHandler, ...args }: InputComponentProps) => (
+          <InputContainer
+            key={id}
+            name={name}
+            value={values[name]}
+            onChange={onChange}
+            showLeftIcon={true}
+            showRightIcon={true}
+            isValid={errorHandler?.(values[name]) ?? true}
+            disabled={false}
+            errorHandler={errorHandler}
+            {...args}
+          />
+        )
+      )}
       <button onClick={() => console.log(values)}>submit</button>
     </form>
   );

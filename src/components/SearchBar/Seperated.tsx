@@ -1,6 +1,6 @@
 import react, { FormEvent } from "react";
 import { SearchBarProps } from "./SearchBar";
-import { Icon } from "../Icon";
+import { Search } from "../Icon";
 import styled, { css } from "styled-components";
 import { colors } from "../../styles/options";
 
@@ -33,7 +33,7 @@ const SearchBarSeperated = ({
     >
       {leftIcon && (
         <StyledButton>
-          <Icon.SearchIcon />
+          <Search type="white" />
         </StyledButton>
       )}
 
@@ -44,7 +44,7 @@ const SearchBarSeperated = ({
       />
       {rightIcon && (
         <StyledButton>
-          <Icon.SearchIcon />
+          <Search type="white" />
         </StyledButton>
       )}
     </StyledForm>

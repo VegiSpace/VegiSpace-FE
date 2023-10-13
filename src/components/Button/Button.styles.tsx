@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { ChildProps } from "./Button";
+import { ChildProps } from ".";
 import { colors, borderRadius } from "../../styles/options";
 
 const DefaultStyles = css`
