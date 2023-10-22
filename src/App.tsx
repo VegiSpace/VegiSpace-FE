@@ -12,6 +12,7 @@ import {
 import { DefaultLayout } from "./templates";
 
 const App = (): JSX.Element => {
+  const test = 1;
   return (
     <>
       <BrowserRouter>
