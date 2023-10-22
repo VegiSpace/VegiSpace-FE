@@ -14,6 +14,7 @@ import { DefaultLayout } from "./templates";
 
 const App = (): JSX.Element => {
   const temp = () => {};
+   const temp2 = () => {};
   return (
     <>
       <BrowserRouter>
