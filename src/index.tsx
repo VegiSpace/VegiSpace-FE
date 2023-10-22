@@ -11,5 +11,5 @@ root.render(
   <ThemeProvider theme={theme}>
     <GlobalStyles />
     <App />
-  </ThemeProvider>
+  </ThemeProvider>,
 );

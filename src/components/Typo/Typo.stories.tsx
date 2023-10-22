@@ -117,4 +117,3 @@ export const Caption4 = Template.bind({});
 Caption4.args = {
   typoType: "Caption4",
 };
-

@@ -43,5 +43,6 @@ module.exports = {
     "react/no-unknown-property": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "react/no-children-prop": "off",
+    "@typescript-eslint/no-empty-function":"error"
   },
 };

@@ -56,7 +56,7 @@ const LoginForm = () => {
                 showRightIcon={false}
                 {...args}
               />
-            )
+            ),
           )}
 
           <LoginHelper

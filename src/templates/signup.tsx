@@ -69,7 +69,7 @@ const SignUp = () => {
             errorHandler={errorHandler}
             {...args}
           />
-        )
+        ),
       )}
       <button onClick={() => console.log(values)}>submit</button>
     </form>

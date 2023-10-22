@@ -16,11 +16,9 @@ pre-commit:
   parallel: true
   commands:
     prettier:
-      glob: './src/**'
-      run: npm run format
-    linter:
-      glob: './src/**/*.{ts,tsx}'
-      run: npm run lint
+      run:  npm run format  
+    eslint:
+      run: npm run lint 
     
 #    eslint:
 #       glob: "*.{js,ts,jsx,tsx}"
