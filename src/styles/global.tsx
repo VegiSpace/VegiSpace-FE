@@ -39,6 +39,10 @@ const GlobalStyles = createGlobalStyle`
     height: 100%;
     padding: 0;
     margin: 0;
+    background-color: #A4CCA0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
      /* font-size 1em = 10px on default browser settings */
     font-size: 62.5%;

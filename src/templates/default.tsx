@@ -20,5 +20,6 @@ const StyledDefaultLayout = styled.div`
   min-height: 100vh;
   max-height: fit-content;
   margin: auto;
-  /*background-color: yellow;*/
+
+  background-color: white;
 `;
