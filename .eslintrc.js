@@ -32,6 +32,7 @@ module.exports = {
   },
   plugins: ["@typescript-eslint", "react"],
   rules: {
+    // 0 = off, 1 = warn, 2 = error
     "react/react-in-jsx-scope": "off",
     "react/no-unescaped-entities": "off",
     // 기본 설정을 꺼주어야 한다.
@@ -39,9 +40,8 @@ module.exports = {
     "@typescript-eslint/no-unused-vars": "off",
     "react/prop-types": "off",
     "react/display-name": "off",
-    "react/no-unknown-property":"off",
-    "@typescript-eslint/no-explicit-any":"off",
-     "react/no-children-prop":"off"
-
+    "react/no-unknown-property": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "react/no-children-prop": "off",
   },
 };

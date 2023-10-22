@@ -1,5 +1,3 @@
-import { FormEvent, ChangeEvent } from "react";
-
 export interface InputCommonProps {
   id?: number;
   name: string;
@@ -39,6 +37,6 @@ export interface SignupFormInputProps {
 }
 
 export interface InputStateControlProps {
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   value: UserFormInputProps[keyof UserFormInputProps];
 }

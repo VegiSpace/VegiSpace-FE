@@ -1,6 +1,6 @@
 import { useState, useEffect, FormEvent, ChangeEvent } from "react";
 import { useCookies } from "react-cookie";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { InputComponentProps, LoginFormInputProps } from "../../../types/Auth";
 import { InputContainer, Button } from "../../../components";
 import LoginHelper from "./helper";

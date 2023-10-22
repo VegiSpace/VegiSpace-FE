@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../../components";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 const OAuth = () => {
   const navigation = useNavigate();

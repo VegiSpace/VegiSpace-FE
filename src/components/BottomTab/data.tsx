@@ -9,7 +9,6 @@ import {
   RecipeActive,
   OrderActive,
   MypageActive,
-  LockBlack,
 } from "../../assets";
 
 const NavLinkData = [
