@@ -21,7 +21,7 @@
 /*medium*/
 @font-face {
   font-family: "NIXGONM2";
-  font-weight: normal;
+  font-weight: lighter;
   src:
     local("NIXGONM2"),
     url(./fonts/NIXGONFONTS_M_2.otf) format("woff");

@@ -9,3 +9,4 @@ export {
 } from "./Input";
 export type { ChildProps as ButtonChildProps } from "./Button";
 export { Button } from "./Button";
+export { Typo } from "./Typo";
