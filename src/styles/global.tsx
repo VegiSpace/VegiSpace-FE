@@ -3,36 +3,6 @@ import reset from "styled-reset";
 
 const GlobalStyles = createGlobalStyle`
 
-
-
-  
-
-// NIXGONB - Bold
-@font-face {
-     font-family: 'NIXGONM2';
-     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/NIXGONB-Vb.woff') format('woff');
-     font-weight: bold; // bold
-
-}
-// NIXGONB - large
-@font-face {
-     font-family: 'NIXGONM2';
-     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/NIXGONL-Vb.woff') format('woff');
-     font-weight: normal; // large
-
-}
-// NIXGONB - medium
-@font-face {
-     font-family: 'NIXGONM2';
-     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/NIXGONM-Vb.woff') format('woff');
-    font-weight: lighter;
-}
-
-
-
-
-
-
       ${reset}
     #root, body, html {
     width: 100%;
