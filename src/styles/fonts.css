@@ -1,0 +1,29 @@
+/*bold*/
+@font-face {
+  font-family: "NIXGONM2";
+  font-weight: bold;
+  src:
+    local("NIXGONM2"),
+    url(./fonts/NIXGONFONTS_B_2.otf) format("woff");
+  font-display: block;
+}
+
+/*large*/
+@font-face {
+  font-family: "NIXGONM2";
+  font-weight: normal;
+  src:
+    local("NIXGONM2"),
+    url(./fonts/NIXGONFONTS_L_2.otf) format("woff");
+  font-display: block;
+}
+
+/*medium*/
+@font-face {
+  font-family: "NIXGONM2";
+  font-weight: lighter;
+  src:
+    local("NIXGONM2"),
+    url(./fonts/NIXGONFONTS_M_2.otf) format("woff");
+  font-display: block;
+}
