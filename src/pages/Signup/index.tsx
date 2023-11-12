@@ -4,6 +4,7 @@ import { DevTool } from "@hookform/devtools";
 import { EMAIL_DOMAIN_ARR } from "constant";
 import { SignUpFormValues } from "types";
 import { colors } from "styles/options";
+import { TextLogo } from "templates";
 import { Button, Typo } from "components";
 
 const Signup = () => {
@@ -30,7 +31,7 @@ const Signup = () => {
   console.log(isValid);
   return (
     <StyledSection>
-      <StyledBanner>베지스페이스에 오신 것을 환영합니다!</StyledBanner>
+      <TextLogo text="베지스페이스에 오신 것을 환영합니다!" />
       <StyledFormCotainer
         autoComplete="off"
         onSubmit={handleSubmit(async (data) => {
@@ -302,12 +303,6 @@ const StyledCheckboxWrapper = styled.div`
 
 const StyledCheckboxContainer = styled.div`
   margin: 0.4rem 0;
-`;
-
-const StyledBanner = styled.div`
-  font-size: 1.8rem;
-  font-weight: lighter;
-  padding: 4.4rem 0;
 `;
 
 const StyledFormCotainer = styled.form``;

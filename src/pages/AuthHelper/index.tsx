@@ -1,5 +1,5 @@
 import { useSearchParams } from "react-router-dom";
-
+import { FindPW } from "pages";
 const AuthHelper = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -9,7 +9,7 @@ const AuthHelper = () => {
   return (
     <>
       {/*{type === "id" && <div>아이디 찾기</div>}*/}
-      {type === "password" && <div>비밀 번호 찾기</div>}
+      {type === "password" && <FindPW />}
     </>
   );
 };
