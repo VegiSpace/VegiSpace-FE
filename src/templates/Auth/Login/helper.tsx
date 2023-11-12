@@ -15,18 +15,18 @@ const LoginHelper = ({ handleSavedIdChange, isSaved }: LoginHelperProps) => {
   };
   return (
     <StyledHelperWrapper>
-      <div>
+      <StyledSavedIdContainer>
         {" "}
         <input
           type="checkbox"
           onChange={handleSavedIdChange}
           checked={isSaved}
         />
-        아이디 저장
-      </div>
+        <span>아이디 저장</span>
+      </StyledSavedIdContainer>
       <StyledFindContainer>
-        <span onClick={() => handleFindAuth("id")}>아이디 찾기</span>
-        <span>|</span>
+        {/*<span onClick={() => handleFindAuth("id")}>아이디 찾기</span>
+        <span>|</span>*/}
         <span onClick={() => handleFindAuth("password")}>비밀 번호 찾기</span>
       </StyledFindContainer>
     </StyledHelperWrapper>
@@ -41,11 +41,16 @@ const StyledHelperWrapper = styled.div`
   margin-top: 1.2rem;
   justify-content: space-between;
 `;
-
-const StyledFindContainer = styled.div`
-  width: 13.3rem;
+const StyledSavedIdContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  align-items: center;
+`;
+
+const StyledFindContainer = styled.div`
+  /*width: 13.3rem;*/
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
   align-items: center;
 `;
