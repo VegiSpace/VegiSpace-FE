@@ -5,10 +5,8 @@ interface EmailDomainProps {
 
 interface SignUpFormValues {
   name: string;
-  email: {
-    address: string;
-    domain: string;
-  };
+  emailAddress: string;
+  emailDomain: string;
   password: string;
   passwordConfirm: string;
   phone: string;
