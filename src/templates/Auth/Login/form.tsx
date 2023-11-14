@@ -1,43 +1,60 @@
-import { useState, useEffect, FormEvent, ChangeEvent } from "react";
-import { useCookies } from "react-cookie";
 import styled from "styled-components";
-import { InputComponentProps, LoginFormInputProps } from "../../../types/Auth";
-import { InputContainer, Button } from "../../../components";
+import { useCookies } from "react-cookie";
+import { useState, useEffect, FormEvent, ChangeEvent } from "react";
+import { userAPI } from "apis";
+import { InputContainer, Button } from "components";
+import { InputComponentProps, LoginFormInputProps } from "types/Auth";
+
 import LoginHelper from "./helper";
 import { LoginInputs } from "../data";
+import axios from "axios";
 
 const LoginForm = () => {
   const [isSaved, setIsSaved] = useState<boolean>(false);
-  const [cookies, setCookie, removeCookie] = useCookies(["savedId"]);
+  const [cookies, setCookie, removeCookie] = useCookies(["savedEmail"]);
   const [values, setValues] = useState<LoginFormInputProps>({
-    id: "",
+    email: "",
     password: "",
   });
-  const handleSavedIdChange = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.checked, values.id);
+  const handleSavedEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.checked, values.email);
     setIsSaved(e.target.checked);
     if (e.target.checked) {
-      setCookie("savedId", values.id, { maxAge: 2000 });
+      setCookie("savedEmail", values.email, { maxAge: 2000 });
     } else {
-      removeCookie("savedId");
+      removeCookie("savedEmail");
     }
   };
 
-  const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(values);
+
+    try {
+      const response = await userAPI.postLogin(values);
+      //const response = await userAPI.getAllUsers();
+      console.log("로그인 페이지 응답", values, response);
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        console.log(error);
+        const errorData = error.response?.data;
+        const errorStatus = errorData?.status;
+        throw new Error(`로그인 에러 ${errorStatus}: ${errorData}`);
+      }
+      console.log(error);
+    }
   };
 
   const handleFormChange = (event: ChangeEvent<HTMLInputElement>) => {
     const {
       currentTarget: { name, value },
     } = event;
+    console.log(name, value);
     setValues({ ...values, [name]: value });
   };
 
   useEffect(() => {
-    if (cookies.savedId !== undefined) {
-      setValues({ ...values, id: cookies.savedId });
+    if (cookies.savedEmail !== undefined) {
+      setValues({ ...values, email: cookies.savedEmail });
       setIsSaved(true);
     }
   }, []);
@@ -60,7 +77,7 @@ const LoginForm = () => {
           )}
 
           <LoginHelper
-            handleSavedIdChange={handleSavedIdChange}
+            handleSavedEmailChange={handleSavedEmailChange}
             isSaved={isSaved}
           />
         </StyledInputWrapper>
@@ -69,10 +86,7 @@ const LoginForm = () => {
           type="submit"
           btnType="primary"
           color="black"
-          onClick={() => {
-            console.log(values);
-          }}
-          disabled={!(values.id && values.password)}
+          disabled={!(values.email && values.password)}
         >
           로그인
         </Button>

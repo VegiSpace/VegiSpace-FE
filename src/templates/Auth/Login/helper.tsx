@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 export interface LoginHelperProps {
-  handleSavedIdChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleSavedEmailChange: (e: ChangeEvent<HTMLInputElement>) => void;
   isSaved: boolean;
 }
 
-const LoginHelper = ({ handleSavedIdChange, isSaved }: LoginHelperProps) => {
+const LoginHelper = ({ handleSavedEmailChange, isSaved }: LoginHelperProps) => {
   const navigation = useNavigate();
   const handleFindAuth = (type: string) => {
     console.log(type);
@@ -19,7 +19,7 @@ const LoginHelper = ({ handleSavedIdChange, isSaved }: LoginHelperProps) => {
         {" "}
         <input
           type="checkbox"
-          onChange={handleSavedIdChange}
+          onChange={handleSavedEmailChange}
           checked={isSaved}
         />
         <span>아이디 저장</span>

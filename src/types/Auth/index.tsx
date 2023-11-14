@@ -17,7 +17,6 @@ export type InputComponentProps = InputCommonProps & InputValidProps;
 
 export interface UserFormInputProps {
   [idx: string]: string;
-  id: string;
   username: string;
   email: string;
   password: string;
@@ -25,7 +24,7 @@ export interface UserFormInputProps {
 
 export interface LoginFormInputProps {
   [idx: string]: string;
-  id: UserFormInputProps["id"];
+  email: UserFormInputProps["email"];
   password: UserFormInputProps["password"];
 }
 
