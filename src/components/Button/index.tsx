@@ -14,13 +14,14 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   border?: "square" | "round";
   disabled?: false | true;
   height?: 36 | 48;
+  width?: number;
   onClick?: () => void;
 }
 
 type ParentProps = ButtonProps;
 type ChildProps = Pick<
   ButtonProps,
-  "children" | "color" | "border" | "disabled" | "height" | "onClick"
+  "children" | "color" | "border" | "disabled" | "height" | "onClick" | "width"
 >;
 const Primary = ({
   color,
@@ -59,12 +60,14 @@ const Mini = ({
   border,
   height,
   children,
+  width,
   onClick,
   ...props
 }: ChildProps): JSX.Element => (
   <StyledMini
     height={height ?? 48}
     color={color}
+    width={width ?? undefined}
     border={border ?? "square"}
     onClick={onClick ?? undefined}
   >

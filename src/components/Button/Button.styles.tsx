@@ -167,7 +167,9 @@ const StyledMini = styled.button<{
   color: ChildProps["color"];
   height: ChildProps["height"];
   border: ChildProps["border"];
+  width: ChildProps["width"];
 }>`
+  width: ${({ width }) => (width ? `${width}px` : "100%")};
   ${DefaultStyles}
   ${ColorStyles}
   ${HeightStyles}
