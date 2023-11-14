@@ -28,7 +28,6 @@ const Signup = () => {
     setValue("collectInfoTerms", state, { shouldDirty: true });
   };
 
-  console.log(isValid);
   return (
     <StyledSection>
       <TextLogo text="베지스페이스에 오신 것을 환영합니다!" />
