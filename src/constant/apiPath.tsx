@@ -1,4 +1,4 @@
-export const PATH = {
+const API_PATH = {
   USERS_: "/users",
   // 전체 유저 리스트 조회
   USERS_List: "/list",
@@ -13,3 +13,5 @@ export const PATH = {
   // 유저 프로필
   USERS_PROFILE: "/profile",
 };
+
+export default API_PATH;
