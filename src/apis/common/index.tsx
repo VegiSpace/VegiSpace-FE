@@ -9,14 +9,15 @@ export const axiosInstance = axios.create({
 
 export const axiosReq = {
   async GET<T>(path: string, option?: { params: string }) {
-    const response = await axiosInstance.get<T>(path, option);
+    const response = await axiosInstance.get<T>(`${path}/`, option);
     console.log("axiosReq: GET: ", response);
     return response;
   },
 
   async POST<T>(path: string, body: T, option?: AxiosRequestConfig) {
-    const response = await axiosInstance.post(path, body, option);
-    console.log("axiosReq: POST: ", response);
+    console.log("axiosReq: POST: ", path, body);
+    const response = await axiosInstance.post<T>(`${path}/`, body, option);
+
     return response.data;
   },
 };

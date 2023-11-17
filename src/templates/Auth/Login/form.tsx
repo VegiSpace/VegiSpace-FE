@@ -31,7 +31,7 @@ const LoginForm = () => {
 
     try {
       const response = await userAPI.postLogin(values);
-      //const response = await userAPI.getAllUsers();
+      // const response = await userAPI.getAllUsers();
       console.log("로그인 페이지 응답", values, response);
     } catch (error) {
       if (axios.isAxiosError(error)) {
@@ -60,7 +60,7 @@ const LoginForm = () => {
   }, []);
   return (
     <>
-      <form onSubmit={handleFormSubmit}>
+      <form onSubmit={handleFormSubmit} method="POST">
         <StyledInputWrapper>
           {LoginInputs.map(
             ({ id, name, errorHandler, ...args }: InputComponentProps) => (
@@ -83,7 +83,6 @@ const LoginForm = () => {
         </StyledInputWrapper>
 
         <Button
-          type="submit"
           btnType="primary"
           color="black"
           disabled={!(values.email && values.password)}
