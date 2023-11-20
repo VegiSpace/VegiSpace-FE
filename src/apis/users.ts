@@ -1,13 +1,13 @@
 import { axiosReq } from "./common";
 import { API_PATH } from "constant";
 
-interface ILoginRes {
+interface ILoginReq {
   email: string;
   password: string;
 }
 
-function postLogin(data: ILoginRes) {
-  return axiosReq.POST(`${API_PATH.USERS_}${API_PATH.USERS_LOGIN}`, data);
+function postLogin(body: ILoginReq): Promise<any> {
+  return axiosReq.POST(`${API_PATH.USERS_}${API_PATH.USERS_LOGIN}`, body);
 }
 
 function getAllUsers() {

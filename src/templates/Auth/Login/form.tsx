@@ -4,7 +4,7 @@ import { useState, useEffect, FormEvent, ChangeEvent } from "react";
 import { userAPI } from "apis";
 import { InputContainer, Button } from "components";
 import { InputComponentProps, LoginFormInputProps } from "types/Auth";
-
+import { useLoginTokenActions } from "store";
 import LoginHelper from "./helper";
 import { LoginInputs } from "../data";
 import axios from "axios";
@@ -16,6 +16,8 @@ const LoginForm = () => {
     email: "",
     password: "",
   });
+
+  const { setToken } = useLoginTokenActions();
   const handleSavedEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.checked, values.email);
     setIsSaved(e.target.checked);
@@ -31,8 +33,8 @@ const LoginForm = () => {
 
     try {
       const response = await userAPI.postLogin(values);
-      // const response = await userAPI.getAllUsers();
-      console.log("로그인 페이지 응답", values, response);
+      console.log("로그인 페이지 응답", values, response.data.access);
+      setToken(response.data.access);
     } catch (error) {
       if (axios.isAxiosError(error)) {
         console.log(error);
@@ -99,3 +101,6 @@ export default LoginForm;
 const StyledInputWrapper = styled.div`
   margin: 2.4rem auto;
 `;
+function setToken(access: any) {
+  throw new Error("Function not implemented.");
+}

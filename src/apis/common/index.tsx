@@ -15,9 +15,8 @@ export const axiosReq = {
   },
 
   async POST<T>(path: string, body: T, option?: AxiosRequestConfig) {
-    console.log("axiosReq: POST: ", path, body);
     const response = await axiosInstance.post<T>(`${path}/`, body, option);
-
+    console.log("axiosReq: POST: ", path, body, response);
     return response.data;
   },
 };
