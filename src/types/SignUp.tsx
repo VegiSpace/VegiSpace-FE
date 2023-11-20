@@ -3,18 +3,31 @@ interface EmailDomainProps {
   value: string;
 }
 
+/**
+ * 
+ * 
+ * email,
+password,
+nickname,
+phone,
+ * agree_terms,
+agree_personal,
+agree_sms,
+agree_email
+ */
+
 interface SignUpFormValues {
-  name: string;
+  nickname: string;
   emailAddress: string;
   emailDomain: string;
   password: string;
   passwordConfirm: string;
   phone: string;
   selectAll: boolean;
-  usingTerms: boolean;
-  collectInfoTerms: boolean;
-  shopSMSTerms: boolean;
-  shopEmailTerms: boolean;
+  agree_terms: boolean;
+  agree_personal: boolean;
+  agree_sms: boolean;
+  agree_email: boolean;
 }
 
 export type { EmailDomainProps, SignUpFormValues };

@@ -8,8 +8,10 @@ import { useLoginTokenActions } from "store";
 import LoginHelper from "./helper";
 import { LoginInputs } from "../data";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
+  const navigation = useNavigate();
   const [isSaved, setIsSaved] = useState<boolean>(false);
   const [cookies, setCookie, removeCookie] = useCookies(["savedEmail"]);
   const [values, setValues] = useState<LoginFormInputProps>({
@@ -35,6 +37,7 @@ const LoginForm = () => {
       const response = await userAPI.postLogin(values);
       console.log("로그인 페이지 응답", values, response.data.access);
       setToken(response.data.access);
+      navigation("/");
     } catch (error) {
       if (axios.isAxiosError(error)) {
         console.log(error);
@@ -101,6 +104,3 @@ export default LoginForm;
 const StyledInputWrapper = styled.div`
   margin: 2.4rem auto;
 `;
-function setToken(access: any) {
-  throw new Error("Function not implemented.");
-}

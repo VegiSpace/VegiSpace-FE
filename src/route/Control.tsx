@@ -1,4 +1,5 @@
 import { Main, Login } from "pages";
+import { useNavigate } from "react-router-dom";
 import { useLoginToken } from "store";
 interface PublicRouteProps {
   Component: JSX.Element;
@@ -12,7 +13,6 @@ const PublicRoute = ({ Component, restricted = false }: PublicRouteProps) => {
   return isLogin && restricted ? <Main /> : Component;
 };
 const PrivateRoute = ({ Component }: PrivateRouteProps) => {
-  //console.log(JSON.parse(localStorage.getItem(Storage.USER_ACCESS_TOKEN)));
   const accessToken = useLoginToken();
   const isLogin = accessToken;
 

@@ -6,8 +6,10 @@ import { SignUpFormValues } from "types";
 import { colors } from "styles/options";
 import { TextLogo } from "templates";
 import { Button, Typo } from "components";
+import useSignupForm from "./@hooks/useSignupForm";
 
 const Signup = () => {
+  const { submitLoginForm } = useSignupForm();
   const {
     register,
     handleSubmit,
@@ -22,10 +24,10 @@ const Signup = () => {
     const state = !getValues("selectAll");
     console.log(state);
     setValue("selectAll", state, { shouldDirty: true });
-    setValue("shopEmailTerms", state, { shouldDirty: true });
-    setValue("shopSMSTerms", state, { shouldDirty: true });
-    setValue("usingTerms", state, { shouldDirty: true });
-    setValue("collectInfoTerms", state, { shouldDirty: true });
+    setValue("agree_terms", state, { shouldDirty: true });
+    setValue("agree_personal", state, { shouldDirty: true });
+    setValue("agree_sms", state, { shouldDirty: true });
+    setValue("agree_email", state, { shouldDirty: true });
   };
 
   return (
@@ -33,24 +35,17 @@ const Signup = () => {
       <TextLogo text="베지스페이스에 오신 것을 환영합니다!" />
       <StyledFormCotainer
         autoComplete="off"
-        onSubmit={handleSubmit(async (data) => {
-          console.log(data);
-          try {
-            console.log(data);
-          } catch (error) {
-            console.log(error);
-          }
-        })}
+        onSubmit={handleSubmit((data) => submitLoginForm(data))}
       >
         <StyledInputWrapper>
           <div>
             <StyledInputContainer
-              invalid={errors.name ? colors.warning[25] : colors.grey[400]}
+              invalid={errors.nickname ? colors.warning[25] : colors.grey[400]}
             >
               <StyledInput
                 type="text"
                 placeholder="이름 입력"
-                {...register("name", {
+                {...register("nickname", {
                   required: "이름을 입력해주세요",
                   minLength: {
                     value: 1,
@@ -63,7 +58,9 @@ const Signup = () => {
                 })}
               />
             </StyledInputContainer>
-            {errors?.name && <StyledError> {errors.name.message} </StyledError>}
+            {errors?.nickname && (
+              <StyledError> {errors.nickname.message} </StyledError>
+            )}
           </div>
           <StyledInputContainer
             invalid={
@@ -132,7 +129,7 @@ const Signup = () => {
 
           <div>
             <StyledInputContainer
-              invalid={errors.name ? colors.warning[25] : colors.grey[400]}
+              invalid={errors.password ? colors.warning[25] : colors.grey[400]}
             >
               <StyledInput
                 type="password"
@@ -161,7 +158,9 @@ const Signup = () => {
           </div>
           <div>
             <StyledInputContainer
-              invalid={errors.name ? colors.warning[25] : colors.grey[400]}
+              invalid={
+                errors.passwordConfirm ? colors.warning[25] : colors.grey[400]
+              }
             >
               <StyledInput
                 type="password"
@@ -180,7 +179,7 @@ const Signup = () => {
           </div>
           <div>
             <StyledInputContainer
-              invalid={errors.name ? colors.warning[25] : colors.grey[400]}
+              invalid={errors.nickname ? colors.warning[25] : colors.grey[400]}
             >
               <StyledInput
                 type="text"
@@ -216,12 +215,12 @@ const Signup = () => {
             <div>
               <Controller
                 control={control}
-                name="usingTerms"
+                name="agree_terms"
                 render={({ field: { value } }) => (
                   <>
                     <input
                       type="checkbox"
-                      {...register("usingTerms", {
+                      {...register("agree_terms", {
                         required: "필수 약관에 동의 해야 합니다.",
                       })}
                     />
@@ -231,20 +230,20 @@ const Signup = () => {
               />
             </div>
 
-            {errors?.usingTerms && (
-              <StyledError> {errors.usingTerms.message} </StyledError>
+            {errors?.agree_terms && (
+              <StyledError> {errors.agree_terms.message} </StyledError>
             )}
           </StyledCheckboxContainer>
           <StyledCheckboxContainer>
             <div>
               <Controller
                 control={control}
-                name="collectInfoTerms"
+                name="agree_personal"
                 render={({ field: { value } }) => (
                   <>
                     <input
                       type="checkbox"
-                      {...register("collectInfoTerms", {
+                      {...register("agree_personal", {
                         required: "필수 약관에 동의 해야 합니다.",
                       })}
                     />
@@ -256,16 +255,16 @@ const Signup = () => {
               />
             </div>
 
-            {errors?.collectInfoTerms && (
-              <StyledError> {errors.collectInfoTerms.message} </StyledError>
+            {errors?.agree_personal && (
+              <StyledError> {errors.agree_personal.message} </StyledError>
             )}
           </StyledCheckboxContainer>
           <StyledCheckboxContainer>
-            <input type="checkbox" {...register("shopSMSTerms")} />
+            <input type="checkbox" {...register("agree_sms")} />
             <StyledTermTitle>[선택] 쇼핑정보 수신 동의(SMS)</StyledTermTitle>
           </StyledCheckboxContainer>
           <StyledCheckboxContainer>
-            <input type="checkbox" {...register("shopEmailTerms")} />
+            <input type="checkbox" {...register("agree_email")} />
             <StyledTermTitle>[선택] 쇼핑정보 수신 동의(이메일)</StyledTermTitle>
           </StyledCheckboxContainer>
         </StyledCheckboxWrapper>
