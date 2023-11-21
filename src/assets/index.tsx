@@ -32,3 +32,8 @@ export { ReactComponent as ShopActive } from "./bottomTab/active/shop.svg";
 
 export { ReactComponent as LogoImg } from "./symbol/LogoImg.svg";
 export { ReactComponent as LogoTitle } from "./symbol/LogoTitle.svg";
+
+export { default as MainBanner1 } from "./banner/Banner1.png";
+export { default as MainBanner2 } from "./banner/Banner2.png";
+export { default as MainBanner3 } from "./banner/Banner3.png";
+export { default as MainBanner4 } from "./banner/Banner4.png";
