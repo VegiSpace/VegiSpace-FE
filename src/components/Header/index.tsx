@@ -4,13 +4,20 @@ import { Back } from "../Icon";
 import { Typo } from "../Typo";
 import { colors } from "../../styles/options";
 import { headerData } from "./data";
+import { useLoginToken } from "store";
 
 const Header = () => {
   const { pathname, search } = useLocation();
 
   const navigate = useNavigate();
+  const isLogin = Boolean(useLoginToken());
   const baseUrl = pathname + search;
-  const { needPrev, title, needHeader } = headerData[baseUrl];
+
+  // Auth가 필요한데 로그인되어 있지 않은 경우 login 헤더 나오도록
+  const { needPrev, title, needHeader } =
+    headerData[baseUrl].needAuth && !isLogin
+      ? headerData["/login"]
+      : headerData[baseUrl];
 
   const handlePrevBtn = () => {
     navigate(-1);
