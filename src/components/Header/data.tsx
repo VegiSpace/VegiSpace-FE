@@ -8,6 +8,7 @@ interface pathDataProps {
 interface headerDataProps {
   [index: string]: pathDataProps;
 }
+
 const headerData: headerDataProps = {
   "/login": {
     needPrev: true,
