@@ -42,3 +42,5 @@ export { default as CTAButton } from "./cta/CTAButton.png";
 export { default as RecipeThumbImg } from "./recipe/thumbnail.png";
 export { default as ClockWhite } from "./recipe/clockWhite.svg";
 export { default as ClockBlack } from "./recipe/clockBlack.svg";
+
+export { default as FreqUsedThumbImg } from "./freqUsed/thumbnail.png";
