@@ -37,3 +37,8 @@ export { default as MainBanner1 } from "./banner/Banner1.png";
 export { default as MainBanner2 } from "./banner/Banner2.png";
 export { default as MainBanner3 } from "./banner/Banner3.png";
 export { default as MainBanner4 } from "./banner/Banner4.png";
+export { default as CTAButton } from "./cta/CTAButton.png";
+
+export { default as RecipeThumbImg } from "./recipe/thumbnail.png";
+export { default as ClockWhite } from "./recipe/clockWhite.svg";
+export { default as ClockBlack } from "./recipe/clockBlack.svg";

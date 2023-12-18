@@ -29,7 +29,7 @@ const SearchBarDefault = ({
       {leftIcon && (
         <button>
           {" "}
-          <Search type="white" />
+          <Search type="black" />
         </button>
       )}
 
@@ -37,7 +37,7 @@ const SearchBarDefault = ({
       {rightIcon && (
         <button>
           {" "}
-          <Search type="white" />
+          <Search type="black" />
         </button>
       )}
     </StyledForm>
