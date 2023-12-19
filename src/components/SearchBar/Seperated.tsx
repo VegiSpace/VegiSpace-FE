@@ -33,7 +33,7 @@ const SearchBarSeperated = ({
     >
       {leftIcon && (
         <StyledButton>
-          <Search type="white" />
+          <Search type="black" />
         </StyledButton>
       )}
 
@@ -44,7 +44,7 @@ const SearchBarSeperated = ({
       />
       {rightIcon && (
         <StyledButton>
-          <Search type="white" />
+          <Search type="black" />
         </StyledButton>
       )}
     </StyledForm>

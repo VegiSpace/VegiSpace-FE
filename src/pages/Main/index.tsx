@@ -1,10 +1,11 @@
 import Banner from "./Banner";
+import CTA from "./CTA";
 const Main = () => {
   return (
-    <div>
+    <>
       <Banner />
-      Main
-    </div>
+      <CTA />
+    </>
   );
 };
 
