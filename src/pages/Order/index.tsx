@@ -13,8 +13,7 @@ const Order = () => {
       <Search query={query} setQuery={setQuery} />
       <Typo typoType="SubTitle1">자주 주문한 상품</Typo>
       <FreqUsed />
-      <Typo typoType="SubTitle1">이용 내역</Typo>
-      <SectionLine />
+
       <History />
     </OrderSection>
   );
@@ -27,11 +26,4 @@ const OrderSection = styled.div`
   flex-direction: column;
   align-items: flex-start;
   padding: 2.5rem;
-`;
-
-const SectionLine = styled.hr`
-  color: black;
-  background-color: black;
-  width: 100%;
-  height: 0.125rem;
 `;

@@ -44,3 +44,4 @@ export { default as ClockWhite } from "./recipe/clockWhite.svg";
 export { default as ClockBlack } from "./recipe/clockBlack.svg";
 
 export { default as FreqUsedThumbImg } from "./freqUsed/thumbnail.png";
+export { default as DeliveryThumbImg } from "./delivery/thumbnail.png";

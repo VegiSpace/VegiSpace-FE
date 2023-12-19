@@ -7,6 +7,7 @@ const FreqUsedContainer = styled.div`
   align-items: center;
   overflow-x: scroll;
   width: 100%;
+  margin: 1.4rem 0;
 `;
 
 const FreqUsedCard = styled.div`
