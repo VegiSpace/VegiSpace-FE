@@ -1,6 +1,5 @@
 import { Typo } from "components";
-import styled from "styled-components";
-import { borderRadius, colors } from "styles/options";
+import * as St from "./style";
 import { DeliveryThumbImg } from "assets";
 import { DeliveryComplete, DeliveryImcomplete } from "./Delivery";
 
@@ -33,29 +32,15 @@ const History = () => {
   return (
     <>
       <Typo typoType="SubTitle1">이용 내역</Typo>
-      <SectionLine />
+      <St.SectionLine />
       {Histories.map(({ title, isDone, ...rest }, idx) => (
-        <HistoryCardContainer key={idx}>
+        <St.HistoryCardContainer key={idx}>
           <Typo typoType="Body2">{title}</Typo>
           {isDone ? <DeliveryComplete /> : <DeliveryImcomplete {...rest} />}
-        </HistoryCardContainer>
+        </St.HistoryCardContainer>
       ))}
     </>
   );
 };
 
 export default History;
-
-const SectionLine = styled.hr`
-  color: black;
-  background-color: black;
-  width: 100%;
-  height: 0.125rem;
-  margin: 0.5rem 0;
-`;
-
-const HistoryCardContainer = styled.div`
-  width: 100%;
-  border-bottom: 2px solid ${colors.grey[300]};
-  padding: 1.5rem 0;
-`;
